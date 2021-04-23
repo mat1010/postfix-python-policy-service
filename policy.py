@@ -13,15 +13,15 @@ logging.basicConfig(filename=LOGPATH,
 
 
 def dunno():
-    """Answer with  to stop restriction processing
-    and permit the message
+    """Answer with dunno to proceed further processing
+    of restriction following the policy service
     """
     print("action=dunno\n")
 
 
 def reject():
-    """Answer with dunno to proceed further processing
-    of restriction follwed the policy service
+    """Answer with reject to stop restriction processing
+    and reject the message
     """
     print("action=reject Rejected by python-policy-service \n")
 
@@ -54,7 +54,7 @@ def main():
         # convert key=value pairs into dict
         attributes = dict(line.split('=') for line in lines)
 
-        # example to the the get the sender mail address
+        # example to get the sender mail address
         sender = attributes.get('sender', 'missing_sender')
 
         logging.debug('Sender address: %s', sender)
